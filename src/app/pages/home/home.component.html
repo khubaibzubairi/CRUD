@@ -1,0 +1,115 @@
+<section class="flex flex-col justify-center py-20">
+  <div class="container mx-auto rounded-xl overflow-hidden">
+    <h1 class="text-center text-3xl font-bold bg-slate-500 py-4 text-amber-300">
+      Book App
+    </h1>
+    <div class="options">
+      <div class="flex items-center justify-center bg-slate-400 py-4">
+        <h2 class="text-center text-2xl text-white">Add a new Entry</h2>
+      </div>
+      <form action="" class="flex flex-wrap justify-between px-3 py-6 gap-4">
+        <div class="input flex gap-3 items-center">
+          <label for="title" class="text-[18px] font-medium">Title</label>
+          <input
+            type="text"
+            name="title"
+            id=""
+            class="text-xl py-2 px-1 border-2 border-slate-200 focus:border-slate-400 rounded-md"
+          />
+        </div>
+        <div class="input flex gap-3 items-center">
+          <label for="author" class="text-[18px] font-medium">Author</label>
+          <input
+            type="text"
+            name="author"
+            id=""
+            class="text-xl py-2 px-1 border-2 border-slate-200 focus:border-slate-400 rounded-md"
+          />
+        </div>
+        <div class="input flex gap-3 items-center">
+          <label for="price" class="text-[18px] font-medium">Price</label>
+          <input
+            type="number"
+            name="price"
+            min="50"
+            id=""
+            class="text-xl py-2 px-1 border-2 border-slate-200 focus:border-slate-400 rounded-md"
+          />
+        </div>
+        <div class="input flex gap-3 items-center">
+          <label for="image" class="text-[18px] font-medium">Image</label>
+          <input type="file" name="image" id="" />
+        </div>
+      </form>
+      <div class="actions flex">
+        <button
+          type="submit"
+          class="cursor-pointer flex-1 text-center btn text-2xl font-bold bg-green-600 text-white p-2 hover:bg-green-500 transition-all"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+    <div class="all-records my-4 border-2 border-slate-700 rounded-md">
+      <h2 class="text-center text-3xl font-bold bg-slate-700 text-white py-2">
+        All Books
+      </h2>
+      <div class="book-container flex gap-5 flex-wrap p-4">
+        <!-- Single Book -->
+        <div
+          class="book bg-slate-100 p-3 rounded-md flex flex-col justify-center relative"
+          *ngFor="let book of allRecords"
+        >
+          <div
+            class="image overflow-hidden w-[100px] h-[150px] flex justify-center items-center relative"
+          >
+            <div class="price absolute top-0 right-0">
+              <span
+                class="text-[14px] font-medium bg-gray-600 text-white px-2 py-1"
+                >$ {{ book.price }}</span
+              >
+            </div>
+            <img
+              src="http://localhost:3000/{{
+                book.image!.replace('./assets/', '')
+              }}"
+              class="w-full"
+              alt=""
+            />
+          </div>
+          <div class="details my-1">
+            <div class="title">
+              <span class="text-lg font-bold text-gray-800">{{
+                book.name
+              }}</span>
+            </div>
+            <div class="author leading-3">
+              <span class="text-gray-400">by: </span>
+              <span class="text-[14px] font-medium text-gray-600 capitalize">{{
+                book.author
+              }}</span>
+            </div>
+          </div>
+          <div class="actions flex items-center justify-between w-[100px]">
+            <div class="update">
+              <img
+                src="/assets/images/edit.png"
+                alt="Edit"
+                title="Edit"
+                class="cursor-pointer w-[30px]"
+              />
+            </div>
+            <div class="delete">
+              <img
+                src="/assets/images/delete.png"
+                alt="Edit"
+                title="Delete"
+                class="cursor-pointer w-[30px]"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
